@@ -23,8 +23,10 @@ if(videoContainers.length > 0) {
 
     const currTime = '00:00';
     currentTimeEl.innerText = currTime;
-    const videoDuration = getVideoDuration(video); 
-    durationEl.innerText = videoDuration;
+    if(video.readyState > 0) {
+      const videoDuration = getVideoDuration(video); 
+      durationEl.innerText = videoDuration;
+    }
     
     // Add event listeners
     video.addEventListener('loadedmetadata', init.bind(video, durationEl));
