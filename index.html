@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Video Player</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" 
+    integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Custom Video Player</h1>
+  </header>
+  <div class="container">
+    <div class="video-box" data-video>
+      <video class="video-box__video" preload="metadata">
+        <source src="videos/house.mp4">
+      </video>
+      <div class="video-box__controls">
+        <button class="btn btn--play" data-play>
+          <i class="fas fa-play"></i>
+          <i class="fas fa-pause"></i>
+        </button>
+        <button class="btn btn--stop" data-stop>
+          <i class="fas fa-stop"></i>
+        </button>
+        <div class="video-box__controls_time">
+          <span data-timecurrent></span> / <span data-duration></span>
+        </div>
+        <div class="video-box__controls_progress" data-videoprogress>
+          <div><span></span></div>
+        </div>
+        <div class="video-box__controls_volume">
+          <button class="btn btn--volume" data-volume>
+            <i class="fas fa-volume-up"></i>
+            <i class="fas fa-volume-off"></i>
+          </button>
+          <div class="video-box__controls_progress-wrapper">
+            <div class="video-box__controls_progress--vertical" data-volumeprogress>
+              <div><span></span></div>
+            </div>
+          </div>
+        </div>
+        <button class="btn" data-fullscreen><i class="fas fa-compress"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="video.js"></script>
+</body>
+</html>

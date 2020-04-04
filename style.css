@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+:root {
+  --primary-color: #009e6c;
+  --secondary-color: #016445;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 30px 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  width: 600px;
+  max-width: 100%;
+  margin: 50px auto;
+}
+
+.video-box {
+  position: relative;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none;
+}
+
+.video-box__video {
+  width: 100%;
+  display: block;
+}
+
+.video-box.fullscreen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: #000;
+}
+
+.video-box.fullscreen video {
+  height: 100%;
+  width: 100%;
+}
+
+.video-box__controls {
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.video-box:hover .video-box__controls {
+  opacity: 1;
+}
+
+.video-box__controls_time {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 12px;
+}
+
+.video-box__controls_progress-wrapper {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0,0,0,0.8);
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.video-box__controls_progress {
+  height: 5px;
+  background-color: #fff;
+  position: relative;
+  cursor: pointer;
+  flex: 1;
+  margin: 0 15px;
+  border-radius: 2px;
+}
+
+.video-box__controls_progress--vertical {
+  height: 100px;
+  width: 5px;
+  background-color: var(--primary-color);
+  position: relative;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.video-box__controls_progress div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 5px;
+  width: 0%;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+.video-box__controls_progress--vertical div {
+  height: 0%;
+  width: 5px;
+  background-color: #fff;
+  border-radius: 2px;
+  position: absolute;
+}
+
+.video-box__controls_progress span,
+.video-box__controls_progress--vertical span {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  transform: translate(8px, -50%);
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  transition: box-shadow .3s ease;
+}
+
+.video-box__controls_progress span:hover,
+.video-box__controls_progress--vertical span:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.video-box__controls_progress--vertical span {
+  bottom: 0;
+  top: auto;
+  transform: translate(5px, 50%);
+}
+
+.video-box__controls_volume {
+  position: relative;
+  height: 100%;
+}
+
+.video-box__controls_volume:hover .video-box__controls_progress-wrapper {
+  display: flex;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #fff;
+  font-size: 12px;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  transition: color .3s ease;
+}
+
+.btn i {
+  transform: scale(1);
+  transition: transform .3s ease;
+  backface-visibility: hidden;
+}
+
+.btn:hover {
+  color: var(--primary-color);
+}
+
+.btn:hover i {
+  transform: scale(1.5);
+}
+
+.btn--play .fa-pause {
+  display: none;
+}
+
+.btn--play.playing .fa-play {
+  display: none;
+}
+
+.btn--play.playing .fa-pause {
+  display: inline;
+}
+
+.btn--volume .fa-volume-off {
+  display: none;
+}
+
+.btn--volume.muted .fa-volume-up {
+  display: none;
+}
+
+.btn--volume.muted .fa-volume-off {
+  display: inline;
+}
